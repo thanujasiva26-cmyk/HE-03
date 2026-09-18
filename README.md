@@ -1,507 +1,740 @@
-CAREX --- AI-Powered Healthcare Inventory Intelligence
+# CAREX — AI-Powered Healthcare Inventory Intelligence
 
-CAREX is a healthcare inventory management and intelligence
-platform designed for pharmacies, hospitals, and clinics. It helps
-monitor medicine stock, predict demand, identify expiry risks, track
-sales, support procurement decisions, and surface AI-driven alerts.
+> **CAREX** is an AI-powered healthcare inventory intelligence platform designed to help pharmacies, hospitals, and clinics monitor medicine stock, predict demand, identify expiry risks, detect unusual sales, and make data-driven procurement decisions.
 
-🚀 Overview
+---
 
-Managing healthcare inventory involves more than simply counting
-medicines. Stock-outs, overstocking, expiry, changing demand, and
-delayed procurement can directly affect operational efficiency.
+## 1. 🚨 Problem Statement
 
-CAREX brings these activities into a single dashboard and adds an
-intelligence layer that helps users identify what needs attention.
+Healthcare facilities manage large numbers of medicines, batches, suppliers, and daily sales transactions. Traditional inventory management often depends on manual monitoring, making it difficult to identify critical situations early.
 
-The system is designed around a simple workflow:
+Common challenges include:
 
-Monitor → Predict → Alert → Review → Approve → Act
+* 💊 **Stock-outs** of essential medicines due to insufficient monitoring.
+* 📦 **Overstocking**, resulting in unnecessary inventory costs.
+* ⏳ **Medicine expiry**, especially when multiple batches are maintained.
+* 📈 **Unpredictable demand**, making procurement planning difficult.
+* 🚨 **Unusual sales patterns** that may go unnoticed.
+* 🧾 **Manual inventory tracking** across multiple operations.
+* 🚚 Supplier lead times not being adequately considered during replenishment.
+* 👨‍⚕️ Staff having to manually analyze multiple inventory parameters before making procurement decisions.
 
-✨ Key Features
+These challenges can make healthcare inventory management **reactive rather than proactive**.
 
-📊 Operations Dashboard
+---
 
-Total active medicines
+# 2. 💡 Solution
 
-Today's sales and units sold
+**CAREX** addresses these challenges by combining healthcare inventory management with an intelligence layer.
 
-Low-stock count
+The system brings together:
 
-Medicines expiring soon
+**Inventory + Sales + Expiry + Demand Prediction + Alerts + Procurement**
 
-Pending procurement requests
+into a single platform.
 
-Live AI alerts
+CAREX analyzes available inventory and transaction information to identify potential risks and provide actionable recommendations.
 
-Weekly demand overview
+### How CAREX works
 
-AI priority levels: Urgent, High, Medium, Low
+```text
+Inventory & Sales Data
+        ↓
+Data Processing
+        ↓
+Demand Prediction
+        ↓
+Inventory Risk Detection
+        ↓
+AI Alerts
+        ↓
+Procurement Recommendation
+        ↓
+Human Review
+        ↓
+Approve / Hold / Escalate
+```
 
-Quick report generation
+Instead of simply showing the current stock, CAREX helps users understand:
 
-💊 Medicine Inventory
+> **What is happening → What may happen next → What needs attention → What action can be considered**
 
-Medicine and batch-level inventory
+The procurement process remains **human-controlled**, with recommendations presented for review rather than automatically placing orders.
 
-Current stock visibility
+---
 
-Minimum-stock threshold
+# 3. ✨ Features
 
-Safety-stock information
+## 📊 3.1 Intelligent Dashboard
 
-Expiry status
+The CAREX dashboard provides a centralized overview of healthcare inventory operations.
 
-Supplier details
+It displays:
 
-Priority classification
+* Total medicines
+* Today's sales
+* Units sold
+* Low-stock medicines
+* Medicines expiring soon
+* Pending procurement
+* Active AI alerts
+* Weekly demand information
+* Inventory priority levels
 
-Demand prediction for the next 7 days
+---
 
-Add-stock workflow
+## 💊 3.2 Medicine Inventory Management
 
-🧾 Sales & Billing
+CAREX provides medicine and batch-level visibility.
 
-Select a medicine and batch
+Users can view:
 
-Enter quantity sold
+* Medicine name
+* Generic name
+* Batch ID
+* Current stock
+* Minimum stock
+* Safety stock
+* Expiry date/status
+* Supplier
+* Supplier lead time
+* Demand forecast
+* Priority
 
-Record transactions
+This allows users to understand the complete inventory position of a medicine.
 
-Maintain recent transaction history
+---
 
-Connect sales activity with inventory monitoring
+## 🧾 3.3 Sales & Billing
 
-⏳ Expiry Monitoring
+The Sales module allows users to:
 
-Identify medicines approaching expiry
+1. Select a medicine.
+2. Select the relevant batch.
+3. Enter quantity sold.
+4. Record the transaction.
+5. View recent transactions.
 
-Display expiry warnings
+Sales information can subsequently contribute to demand analysis and unusual-sales detection.
 
-Track individual batches
+---
 
-Generate alerts for medicines requiring review
+## ⏳ 3.4 Expiry Monitoring
 
-🚨 AI Alerts
+CAREX monitors medicine batch expiry dates.
 
-CAREX can surface operational events such as: - Low stock detected -
-Expiry warning - Unusual sales activity
+The system can identify medicines approaching expiry and generate warnings based on the configured expiry-warning period.
 
 Example:
 
-Sales volume is significantly higher than the normal average,
-triggering an unusual-activity alert.
+```text
+Medicine: Insulin
+Batch: INS-2026-04
+Expiry: 15 Days
+Status: Expiring Soon
+Priority: Urgent
+```
 
-📦 Intelligent Procurement
+---
 
-Review suggested orders
+## 🚨 3.5 AI-Powered Alerts
 
-View current stock
+CAREX identifies important inventory events and presents them as alerts.
 
-Compare forecast demand and safety stock
+Examples include:
 
-View supplier and lead time
+### Low Stock
 
-Generate suggested order quantity
+```text
+Paracetamol stock has fallen below the configured threshold.
+```
 
-Assign procurement priority
+### Expiry Warning
 
-Approve / Hold / Escalate procurement requests
+```text
+Insulin Batch INS-2026-04 is approaching expiry.
+```
 
-🤖 CAREX AI Assistant
+### Unusual Sales
 
-The integrated assistant can answer inventory-related questions using
-available system data.
+```text
+Sales volume is significantly higher than the normal sales pattern.
+```
 
-Example:
+Alerts can be categorized according to priority:
 
-User: Which medicine has the highest demand?
+* 🔴 Urgent
+* 🟠 High
+* 🔵 Medium
+* 🟢 Low
 
-CAREX: Paracetamol has the highest sales this week with 126 units
-sold.
+---
 
-This provides a conversational way to access inventory insights without
-manually checking multiple screens.
+## 📈 3.6 Demand Prediction
 
-⚙️ Configurable Inventory Rules
+CAREX uses available sales/inventory data to estimate upcoming medicine demand.
 
-The settings module provides configurable inventory parameters such
-as: - Minimum stock threshold - Safety stock - Expiry warning period -
-Auto-order mode
+The predicted demand can help users:
 
-The prototype uses the following planning logic:
+* Understand upcoming requirements.
+* Identify potential stock shortages.
+* Plan replenishment.
+* Reduce unnecessary overstocking.
 
+The forecasting model can be replaced or upgraded as more historical data becomes available.
+
+---
+
+## 📦 3.7 Intelligent Procurement
+
+CAREX provides procurement recommendations based on inventory planning parameters.
+
+The system considers factors such as:
+
+* Current stock
+* Forecast demand
+* Safety stock
+* Supplier lead time
+* Expected lead-time demand
+
+### Suggested Order Logic
+
+```text
 Required Stock =
-Forecast Demand During Planning Period
+Forecast Demand
 + Safety Stock
-+ Expected Demand During Supplier Lead Time
++ Expected Lead-Time Demand
+```
 
+Then:
+
+```text
 Suggested Order =
 max(0, Required Stock - Available Stock)
+```
 
-🖥️ Interface
+The resulting recommendation is displayed for review.
 
-CAREX uses a clean, healthcare-oriented interface with: - Responsive
-dashboard cards - Clear status and priority badges - Data tables for
-inventory and procurement - Visual demand prediction - Notification
-indicators - AI assistant panel - Approval-oriented workflows
+---
 
-Main Screens
+## ✅ 3.8 Procurement Approval Gate
 
-Module        Purpose
+CAREX does not require procurement recommendations to be automatically executed.
 
-Dashboard     Overall operations and AI overview
-Inventory     Medicine and batch management
-Sales         Sales and billing transactions
-Expiry        Expiry monitoring
-Alerts        AI-generated operational alerts
-Procurement   Stock replenishment and approval
-Analytics     Inventory and demand insights
-Settings      Inventory configuration
+An authorized user can review the recommendation and select:
 
-🔄 System Workflow
+```text
+Approve
+   │
+   ├── Hold
+   │
+   └── Escalate
+```
 
-                    ┌─────────────────────┐
-                    │   Medicine Data     │
-                    │ Stock / Batch /     │
-                    │ Sales / Expiry      │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │   CAREX Engine      │
-                    │ Monitoring +         │
-                    │ Forecasting + Rules  │
-                    └──────────┬──────────┘
-                               │
-              ┌────────────────┼────────────────┐
-              ▼                ▼                ▼
-        ┌───────────┐   ┌────────────┐   ┌────────────┐
-        │ Low Stock │   │   Expiry   │   │  Demand    │
-        │ Detection │   │ Monitoring │   │ Prediction │
-        └─────┬─────┘   └─────┬──────┘   └─────┬──────┘
-              │               │                │
-              └───────────────┼────────────────┘
-                              ▼
-                    ┌─────────────────────┐
-                    │    AI Alerts &      │
-                    │    Prioritization   │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ Procurement Review  │
-                    │ Approve / Hold /    │
-                    │ Escalate            │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ Inventory Updated   │
-                    └─────────────────────┘
+This creates a human-in-the-loop decision process.
 
-🧠 Intelligence Layer
+---
 
-CAREX is designed to move from reactive inventory management to
-proactive inventory intelligence.
+## 🤖 3.9 CAREX AI Assistant
 
-1. Demand Prediction
-
-Historical/transaction data can be used to estimate upcoming medicine
-demand.
-
-2. Low-Stock Detection
-
-Current stock is compared against configured inventory thresholds and
-planning requirements.
-
-3. Expiry Risk Detection
-
-Batch expiry dates are monitored so medicines approaching expiry can be
-reviewed early.
-
-4. Unusual Sales Detection
-
-Current sales activity can be compared with normal sales patterns to
-identify unusual demand.
-
-5. Procurement Recommendation
-
-The system calculates a suggested order quantity using forecast demand,
-safety stock, available inventory, and supplier lead time.
-
-6. Priority Classification
-
-Inventory events can be organized into:
-
-🔴 Urgent
-
-🟠 High
-
-🔵 Medium
-
-🟢 Low
-
-This helps users focus on the events requiring the earliest review.
-
-👥 User Roles
-
-Admin
-
-Designed for administrative control and overall system monitoring.
-
-Pharmacist
-
-Designed for day-to-day inventory operations, sales, alerts, expiry
-review, and procurement workflows.
-
-Role permissions can be extended as the system evolves.
-
-🛠️ Tech Stack
-
-Update this section with the exact technologies used in your
-implementation.
-
-Suggested structure:
-
-Frontend: [React / HTML-CSS-JS / other]
-
-Backend: [Node.js / Python / Java / other]
-
-Database: [MySQL / PostgreSQL / MongoDB / other]
-
-AI / ML: [Model or framework used]
-
-APIs: [REST API / FastAPI / Express / other]
-
-Authentication: [Authentication method]
-
-Deployment: [Vercel / Render / AWS / other]
-
-
-⚙️ Installation & Setup
-
-1. Clone the repository
-
-git clone <YOUR-GITHUB-REPOSITORY-URL>
-cd CAREX
-
-2. Install dependencies
-
-Use the commands required by your selected frontend/backend stack.
+The integrated AI assistant allows users to ask inventory-related questions using natural language.
 
 Example:
 
+**User:**
+
+> Which medicine has the highest demand?
+
+**CAREX:**
+
+> Paracetamol has the highest sales this week with 126 units sold.
+
+This provides users with a conversational way to access inventory insights.
+
+---
+
+## ⚙️ 3.10 Configurable Inventory Rules
+
+The Settings module allows inventory planning parameters to be configured.
+
+Examples:
+
+* Minimum stock threshold
+* Safety stock
+* Expiry warning period
+* Auto-order mode
+* Approval requirements
+
+This allows CAREX to adapt its recommendations according to the organization's inventory policies.
+
+---
+
+# 4. 🛠️ Technology Stack
+
+> Replace the placeholders below with the exact technologies used in your final implementation.
+
+### Frontend
+
+* **React.js / HTML / CSS / JavaScript**
+* Responsive UI
+* Component-based interface
+* Dashboard and data visualization
+
+### Backend
+
+* **Node.js / Python / Java**
+* REST API
+* Business logic
+* Authentication
+* Inventory processing
+
+### Database
+
+* **MySQL / PostgreSQL / MongoDB**
+* Medicine records
+* Batch information
+* Sales transactions
+* Supplier information
+* Alerts
+* Procurement records
+* User information
+
+### AI / Machine Learning
+
+* Demand forecasting
+* Inventory risk detection
+* Unusual-sales detection
+* AI assistant
+* Procurement recommendation engine
+
+### Development Tools
+
+* Git
+* GitHub
+* VS Code
+* API testing tools
+
+### Deployment
+
+* Frontend: `[Deployment Platform]`
+* Backend: `[Deployment Platform]`
+* Database: `[Database Hosting]`
+
+---
+
+# 5. 🏗️ Architecture
+
+CAREX follows a modular architecture consisting of the **frontend, backend/API, database, intelligence layer, and user interaction layer**.
+
+```text
+                         ┌───────────────────────┐
+                         │       CAREX UI        │
+                         │                       │
+                         │ Dashboard             │
+                         │ Inventory             │
+                         │ Sales                 │
+                         │ Expiry               │
+                         │ Alerts                │
+                         │ Procurement           │
+                         │ Analytics             │
+                         │ AI Assistant          │
+                         └───────────┬───────────┘
+                                     │
+                                     ▼
+                         ┌───────────────────────┐
+                         │      Backend API      │
+                         │                       │
+                         │ Authentication        │
+                         │ Inventory Services    │
+                         │ Sales Services        │
+                         │ Procurement Services  │
+                         │ Alert Services        │
+                         └───────────┬───────────┘
+                                     │
+                    ┌────────────────┴────────────────┐
+                    │                                 │
+                    ▼                                 ▼
+          ┌──────────────────┐             ┌──────────────────┐
+          │    Database      │             │ Intelligence     │
+          │                  │             │ Layer            │
+          │ Medicines        │             │                  │
+          │ Batches          │             │ Demand Forecast  │
+          │ Sales            │             │ Risk Detection   │
+          │ Suppliers        │             │ Anomaly Detection│
+          │ Alerts           │             │ Recommendations  │
+          │ Procurement      │             │ AI Assistant     │
+          └──────────────────┘             └────────┬─────────┘
+                                                    │
+                                                    ▼
+                                          ┌────────────────────┐
+                                          │ AI Alerts &        │
+                                          │ Recommendations    │
+                                          └─────────┬──────────┘
+                                                    │
+                                                    ▼
+                                          ┌────────────────────┐
+                                          │ Human Review       │
+                                          │                    │
+                                          │ Approve / Hold /   │
+                                          │ Escalate           │
+                                          └────────────────────┘
+```
+
+### Architecture Layers
+
+| Layer                  | Responsibility                   |
+| ---------------------- | -------------------------------- |
+| **Frontend**           | User interface and visualization |
+| **Backend/API**        | Business logic and communication |
+| **Database**           | Persistent storage               |
+| **AI/ML Layer**        | Prediction and intelligence      |
+| **Alert Engine**       | Risk and event detection         |
+| **Procurement Engine** | Replenishment recommendations    |
+| **Human Review**       | Final procurement decision       |
+
+---
+
+# 6. ⚙️ Setup Instructions
+
+## Prerequisites
+
+Make sure the following are installed:
+
+* Git
+* Node.js / required runtime
+* Database server
+* VS Code or another development environment
+* Required AI/API credentials
+
+---
+
+## Step 1 — Clone the Repository
+
+```bash
+git clone <YOUR-GITHUB-REPOSITORY-URL>
+```
+
+Navigate into the project:
+
+```bash
+cd CAREX
+```
+
+---
+
+## Step 2 — Install Dependencies
+
+If the frontend/backend uses Node.js:
+
+```bash
 npm install
+```
 
-3. Configure environment variables
+If the project contains separate frontend and backend directories:
 
-Create a .env file and add the required configuration:
+```bash
+cd frontend
+npm install
+```
 
+Then:
+
+```bash
+cd ../backend
+npm install
+```
+
+Use the commands specified by your actual project structure.
+
+---
+
+## Step 3 — Configure Environment Variables
+
+Create a `.env` file for the required configuration.
+
+Example:
+
+```env
 DATABASE_URL=your_database_url
 API_URL=your_api_url
 AI_API_KEY=your_ai_api_key
+JWT_SECRET=your_secret
+```
 
-Do not commit real API keys, passwords, database credentials, or
-other secrets to GitHub.
+⚠️ **Never upload actual passwords, API keys, database credentials, or secrets to GitHub.**
 
-4. Run the application
+Add `.env` to `.gitignore`:
 
-Use the appropriate development command for your implementation.
+```text
+.env
+.env.local
+node_modules/
+```
 
-Example:
+---
 
-npm run dev
+## Step 4 — Configure the Database
 
-📸 Screenshots
+Create the CAREX database and initialize the required tables.
 
-Login
+The database should contain entities such as:
 
-The CAREX login screen provides separate access paths for administrative
-and pharmacist users.
-
-Dashboard
-
-The dashboard provides a consolidated view of stock, sales, expiry,
-procurement, and AI alerts.
-
-Inventory
-
-The inventory module displays medicine, batch, stock, threshold, safety
-stock, expiry, and supplier information.
-
-Procurement
-
-The procurement screen provides AI-assisted suggested order quantities
-and an approval workflow.
-
+```text
+Users
+Medicines
+Batches
+Suppliers
+Sales
 Alerts
+Procurement
+Settings
+```
 
-The alerts screen brings important inventory events into one place,
-including low stock, expiry, and unusual sales activity.
+Add initial/demo inventory data if required.
 
-Sales & Billing
+---
 
-The sales screen allows users to record medicine transactions and review
-recent sales.
-
-Place the project screenshots inside a screenshots/ folder and
-uncomment the image links below.
-
-![CAREX Login](screenshots/login.png)
-![CAREX Dashboard](screenshots/dashboard.png)
-![CAREX Inventory](screenshots/inventory.png)
-![CAREX Procurement](screenshots/procurement.png)
-![CAREX Alerts](screenshots/alerts.png)
-![CAREX Sales](screenshots/sales.png)
-
-📈 Example Inventory Scenario
-
-Suppose a medicine has:
-
-Current Stock       = 240 units
-Forecast Demand    = 300 units
-Safety Stock        = 50 units
-Supplier Lead Time = 7 days
-
-CAREX uses the configured forecasting and replenishment logic to
-determine whether additional stock should be reviewed and generates a
-suggested procurement quantity.
-
-The procurement screen then presents the recommendation to an authorized
-user for:
-
-Approve  →  Hold  →  Escalate
-
-This keeps the system decision-support oriented, rather than
-automatically placing an order without review.
-
-🎯 Objectives
-
-CAREX aims to:
-
-Reduce medicine stock-out risk
-
-Improve visibility of inventory levels
-
-Identify expiry risks earlier
-
-Support demand-aware procurement
-
-Detect unusual sales patterns
-
-Reduce manual inventory monitoring
-
-Provide actionable alerts
-
-Help pharmacists and administrators make faster operational
-decisions
-
-🔮 Future Enhancements
-
-Potential future improvements include:
-
-Advanced time-series demand forecasting
-
-Multi-location inventory management
-
-Supplier performance analytics
-
-Purchase-order integration
-
-Barcode/QR-based stock entry
-
-Automated batch tracking
-
-Role-based access control
-
-Audit logs
-
-Real-time database synchronization
-
-Advanced analytics and reporting
-
-Mobile application
-
-Integration with pharmacy/hospital management systems
-
-Explainable AI recommendations
-
-Automated notification channels
-
-🔐 Security Considerations
-
-Because CAREX is designed for healthcare environments, production
-deployment should include:
-
-Secure authentication
-
-Role-based authorization
-
-Encrypted data transmission
-
-Secure secret management
-
-Database access controls
-
-Audit logging
-
-Input validation
-
-Protection against common web vulnerabilities
-
-Appropriate handling of sensitive healthcare data
-
-The current project should be treated as a prototype/demo unless
-production-grade security and compliance requirements have been
-implemented and verified.
-
-🧪 Project Status
-
-Status: 🚧 Prototype / Development
-
-CAREX currently demonstrates the core user experience and
-inventory-intelligence workflow through dashboard, inventory, sales,
-alerts, procurement, and configuration modules.
-
-🤝 Contributing
-
-Contributions are welcome.
-
-Fork the repository
-
-Create a feature branch
-
-git checkout -b feature/your-feature
-
-Commit your changes
-
-git commit -m "Add your feature"
-
-Push the branch
-
-git push origin feature/your-feature
-
-Open a Pull Request
-
-📄 License
-
-Add the license appropriate for your project.
+## Step 5 — Start the Backend
 
 Example:
 
-MIT License
+```bash
+npm run server
+```
 
-👩‍💻 Team
+or:
 
-CAREX --- AI Inventory Intelligence
+```bash
+npm run dev
+```
 
-Built as a software project focused on applying AI-assisted monitoring
-and forecasting to healthcare inventory operations.
+depending on the implementation.
 
-Add your team members, institution, GitHub profiles, and project links
-here.
+---
 
-⭐ Support
+## Step 6 — Start the Frontend
 
-If you find CAREX useful, consider giving the repository a ⭐ on GitHub.
+Open another terminal:
+
+```bash
+npm run dev
+```
+
+The application should then be available through the local development URL displayed by the frontend framework.
+
+---
+
+## Step 7 — Verify the Application
+
+Test the following workflows:
+
+```text
+Login
+  ↓
+Dashboard
+  ↓
+Inventory
+  ↓
+Sales
+  ↓
+Alerts
+  ↓
+Expiry
+  ↓
+Procurement
+  ↓
+Approve / Hold / Escalate
+  ↓
+Analytics / AI Assistant
+```
+
+---
+
+# 7. 🔄 Project Workflow
+
+CAREX follows an end-to-end inventory intelligence workflow.
+
+## Step 1 — Data Collection
+
+The system collects information about:
+
+```text
+Medicine
+Batch
+Stock
+Sales
+Expiry
+Supplier
+Lead Time
+Safety Stock
+```
+
+↓
+
+## Step 2 — Data Processing
+
+The backend processes the available inventory and transaction data.
+
+↓
+
+## Step 3 — Inventory Monitoring
+
+CAREX continuously checks:
+
+```text
+Current Stock
+        +
+Minimum Stock
+        +
+Safety Stock
+        +
+Expiry
+```
+
+↓
+
+## Step 4 — Demand Analysis
+
+Historical/current sales information is used to estimate upcoming demand.
+
+↓
+
+## Step 5 — Risk Detection
+
+The system identifies conditions such as:
+
+```text
+Low Stock
+Expiry Risk
+Unusual Sales
+Potential Shortage
+```
+
+↓
+
+## Step 6 — AI Alerts
+
+Detected events are converted into actionable alerts.
+
+Example:
+
+```text
+⚠ LOW STOCK
+
+Medicine: Omeprazole
+Current Stock: 90
+Minimum Stock: 100
+Priority: HIGH
+```
+
+↓
+
+## Step 7 — Procurement Recommendation
+
+CAREX calculates a suggested replenishment quantity.
+
+```text
+Forecast Demand
+       +
+Safety Stock
+       +
+Lead-Time Demand
+       ↓
+Required Stock
+       ↓
+Suggested Order Quantity
+```
+
+↓
+
+## Step 8 — Human Review
+
+The procurement recommendation is presented to an authorized user.
+
+```text
+┌───────────┐
+│  REVIEW   │
+└─────┬─────┘
+      │
+ ┌────┼─────────────┐
+ ▼    ▼             ▼
+Approve Hold     Escalate
+```
+
+↓
+
+## Step 9 — Inventory Action
+
+Once approved, the procurement action can proceed according to the organization's workflow.
+
+↓
+
+## Step 10 — Continuous Monitoring
+
+New stock and sales data feed back into the system.
+
+```text
+New Data
+   ↓
+Monitoring
+   ↓
+Prediction
+   ↓
+Alerts
+   ↓
+Procurement
+   ↓
+Review
+   ↓
+Updated Inventory
+   ↓
+New Data
+```
+
+This creates a **continuous inventory intelligence cycle**.
+
+---
+
+## 🔁 CAREX at a Glance
+
+```text
+             ┌───────────────┐
+             │   INVENTORY   │
+             │   + SALES     │
+             └───────┬───────┘
+                     ↓
+             ┌───────────────┐
+             │  ANALYSIS &   │
+             │  PREDICTION   │
+             └───────┬───────┘
+                     ↓
+          ┌──────────┴──────────┐
+          ↓                     ↓
+     ┌─────────┐          ┌───────────┐
+     │  ALERTS │          │  DEMAND   │
+     │         │          │ FORECAST  │
+     └────┬────┘          └─────┬─────┘
+          │                     │
+          └──────────┬──────────┘
+                     ↓
+             ┌───────────────┐
+             │ PROCUREMENT   │
+             │ RECOMMENDATION│
+             └───────┬───────┘
+                     ↓
+             ┌───────────────┐
+             │ HUMAN REVIEW  │
+             └───────┬───────┘
+                     ↓
+             ┌───────────────┐
+             │    ACTION     │
+             └───────┬───────┘
+                     ↓
+             ┌───────────────┐
+             │ UPDATED DATA  │
+             └───────┬───────┘
+                     │
+                     └──────→ CONTINUOUS MONITORING
+```
+
+> **CAREX transforms healthcare inventory data into timely insights, alerts, and procurement recommendations while keeping final operational decisions under human control.**
